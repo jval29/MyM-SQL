@@ -43,3 +43,5 @@ SELECT country.name as country, city.name as city FROM country INNER JOIN city O
 
 Task7 - solution.
 SELECT * FROM таблица WHERE (id+2)%2=1;
+или
+SELECT * FROM таблица WHERE id/2!=(id)div(2);
