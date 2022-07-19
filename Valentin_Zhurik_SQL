@@ -7,10 +7,10 @@
 WHERE условия выборки
 
 Task1 - solution.
-SELECT * FROM employee INNER JOIN work ON employee.id=id_employee.work WHERE employee.name LIKE 'a%';
+SELECT * FROM employee INNER JOIN work ON employee.id=work.id_employee WHERE employee.name LIKE 'a%';
 
 Task2 - solution.
-SELECT * FROM employee INNER JOIN work ON  employee.id=id_employee.work WHERE employee.yearbirth BETWEEN '1997' AND '2007' AND work.type='remote';
+SELECT * FROM employee INNER JOIN work ON employee.id=work.id_employee WHERE employee.yearbirth BETWEEN '1997' AND '2007' AND work.type='remote';
 
 
 2. Таблица Users с колонками (id, name, last_name)
@@ -41,4 +41,5 @@ SELECT country.name as country, city.name as city FROM country INNER JOIN city O
 СУПЕР ПРОДВИНУТЫЙ УРОВЕНЬ
 Задача 7: Выбрать записи с нечётными id из ТАБЛИЦЫ
 
-SELECT * FROM таблица where (id+2)%2=1;
+Task7 - solution.
+SELECT * FROM таблица WHERE (id+2)%2=1;
