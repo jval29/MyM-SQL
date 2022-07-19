@@ -10,7 +10,7 @@ Task1 - solution.
 SELECT * FROM employee INNER JOIN work ON employee.id=id_employee.work WHERE employee.name LIKE 'a%';
 
 Task2 - solution.
-SELECT * FROM  employee INNER JOIN work ON  employee.id=id_employee.work WHERE employee.yearbirth BETWEEN 1997 AND 2007 AND work.type='remote';
+SELECT * FROM employee INNER JOIN work ON  employee.id=id_employee.work WHERE employee.yearbirth BETWEEN '1997' AND '2007' AND work.type='remote';
 
 
 2. Таблица Users с колонками (id, name, last_name)
