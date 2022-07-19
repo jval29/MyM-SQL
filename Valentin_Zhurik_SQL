@@ -1,0 +1,44 @@
+1. Даны Таблицы Work с колонками (id, id_employee, type) и таблица Employee с колонками (id, name, adress, yearbirth)
+Задача 1: Вывести сотрудника с именем, начинающимся на А
+Задача 2: Вывести всех сотрудников, у которых type=remote и yearbirth с 1997 по 2007.
+(Обратите внимание, что для этой задачи необходимо обьединить выборку из двух задач, применить INNER JOIN: 
+обьединение происходит по общему полю, в данном случае, это id и id_employee, то есть это будет выглядеть так:
+.....FROM (название первой таблицы) INNER JOIN название второй таблицы ON WORK.id_employee = Employee.id
+WHERE условия выборки
+
+Task1 - solution.
+SELECT * FROM employee INNER JOIN work ON employee.id=id_employee.work WHERE employee.name LIKE 'a%';
+
+Task2 - solution.
+SELECT * FROM  employee INNER JOIN work ON  employee.id=id_employee.work WHERE employee.yearbirth BETWEEN 1997 AND 2007 AND work.type='remote';
+
+
+2. Таблица Users с колонками (id, name, last_name)
+Задача 3: Обновить юзера Корш-Кукоцка, заменить на Мохой-Надь
+
+Task3 - solution.
+UPDATE users SET name='Мохой', last_name='Надь' WHERE name='Корш' AND last_name='Кукоцка';
+
+
+3. Таблица Salary (id_user, salary_rub, date (mm-yyyy))
+Задача 4: Посчитать средний уровень зп за период с 01.2021 по 11.2021
+Задача 5: Вывести зп в $ для тех юзеров, у которых зп в рублях больше 5000
+
+Task4 - solution.
+SELECT AVG(salary_rub) AS average_salary FROM salary WHERE date BETWEEN '01-2021' AND '11-2021';
+
+Task5 - solution.
+SELECT (salary_rub/2.5433) AS salary_usd FROM salary WHERE salary_rub>5000;
+
+
+ПРОДВИНУТЫЙ УРОВЕНЬ:
+4. Таблицы Country (id, name) and City (id, name, country_id)
+Задача 6: Вывести все страны и соответствующие города, где название города начинается на А
+
+Task6 - solution.
+SELECT country.name as country, city.name as city FROM country INNER JOIN city ON country.id=city.country_id WHERE city.name LIKE 'a%';
+
+СУПЕР ПРОДВИНУТЫЙ УРОВЕНЬ
+Задача 7: Выбрать записи с нечётными id из ТАБЛИЦЫ
+
+SELECT * FROM таблица where (id+2)%2=1;
